@@ -12,7 +12,8 @@ Depends:
 License: MIT
 LazyData: true
 Imports:
-    stringr
+    stringr,
+    whisker
 Suggests:
     knitr,
     microbenchmark,

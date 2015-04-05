@@ -6,7 +6,7 @@
 \alias{rocco-package}
 \title{Literate Documentation For R.}
 \usage{
-rocco(directory, output_dir, browse)
+rocco(directory, output_dir = tempdir(), browse = interactive())
 }
 \arguments{
 \item{directory}{character. The package directory to document.}
