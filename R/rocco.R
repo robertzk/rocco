@@ -30,5 +30,47 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
             isTRUE(browse) || isFALSE(browse),
             is_package_directory(directory))
 
-  
+  rocco_(directory, output_dir)
+
+  if (browse) browseURL(file.path(output_dir, "index.html"))
+
+  TRUE
 }
+
+rocco_ <- function(directory, output) {
+  rocco_skeleton(output) 
+
+  compile(directory, file.path(output, "index.html"))
+}
+
+rocco_skeleton <- function(dir) {
+  dir.create(dir, FALSE, TRUE)
+
+  file_map <- list(
+    rocco_file(file.path("www", "highlight", "highlight.pack.js")),
+    file.path(dir, "assets", "highlight.pack.js"),
+    rocco_file(file.path("www", "highlight", "styles", "docco.css")),
+    file.path(dir, "stylesheets", "rocco.css"),
+    rocco_file(file.path("templates", "index.html")),
+    file.path(dir, "index.html")
+  )
+
+  Map(file.copy, file_map[c(TRUE, FALSE)], file_map[c(FALSE, TRUE)],
+      recursive = TRUE, overwrite = TRUE)
+}
+
+compile <- function(pkg_dir, template) {
+  writeLines(whisker::whisker.render(template, rocco_data(pkg_dir)), "template")
+}
+
+rocco_data <- function(pkg_dir) {
+  # TODO: (RK) Fill this in.
+  list(
+    package_description = gsub("[[:space:]]+", " ", package_description(pkg_dir)),
+    package_title = package_title(pkg_dir),
+    rocco_output = "Howdy neighbor"
+  )
+}
+
+
+
