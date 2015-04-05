@@ -30,5 +30,5 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
             isTRUE(browse) || isFALSE(browse),
             is_package_directory(directory))
 
-
+  
 }
