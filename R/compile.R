@@ -71,17 +71,3 @@ markdown_to_html <- function(text) {
   } else ""
 }
 
-{
-  list(
-    list(
-      commentary = markdown::markdownToHTML(fragment.only = TRUE, text = "# How's it going?\n\nI am markdown!"),
-      code       = "library('test')\nfoo <- function(a, b) {\n  a + b\n}\ncat('Hi!')"
-    ),
-
-    list(
-      commentary = markdown::markdownToHTML(fragment.only = TRUE, text = "# How's it going?\n\nI am more markdown!"),
-      code       = "library('test')\nfoo <- function(a, b, c) {\n  a + b - c\n}\ncat('Hello')"
-    )
-  )
-}
-
