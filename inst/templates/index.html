@@ -25,28 +25,38 @@
         z-index: -1;
         height: 100%;
         background-color: #f8f8ff;
-        width: calc(60% + 2.5em);
+        width: 60%;
         right: 0px;
+      }
+
+      div.section {
+        clear: both;
+      }
+
+      div.code {
+        float: right;
+        width: 60%;
       }
 
       code.R {
         font-size: 1.2em;
         line-height: 2em;
-        margin-left: -2.5em;
       }
 
       code.R > span.spacer {
         position: relative;
-        left: -3em;
       }
 
       div.code > pre {
         margin: 0;
+        padding-left: 2em;
       }
 
       div.markdown {
         padding: 1em;
         background: #fff;
+        float: left;
+        width: 35%;
       }
     </style>
 
@@ -57,6 +67,21 @@
 
       <div class="code-background"></div>
 
+      {{#sections}}
+        <div class="section">
+          <div class="markdown markdown-body">
+            {{{commentary}}}
+          </div>
+
+          <div class="code">
+            <pre>
+              <code class="R"><span class="spacer">{{{code}}}</span></code>
+            </pre>
+          </div>
+        </div>
+      {{/sections}}
+
+      <!--
       <div style="clear: both">
         <div style="float: left; width: 35%" class="markdown">
           <h1>How's it going?</h1>
@@ -74,29 +99,12 @@
         </code></pre>
         </div>
       </div>
+      -->
 
-      <div style="clear: both">
-        <div style="float: left; width: 35%" class="markdown">
-          <h1>How's it going?</h1>
-
-          <p> {{ rocco_output }} </p>
-        </div>
-        <div style="float: right; width: 60%" class="code">
-        <pre><code class="R"><span class="spacer">
-          library("test")
-          foo <- function(a, b) {
-            a + b
-          }
-          cat("I am a function")
-          </span>
-        </code></pre>
-        </div>
+      <div class="section">
       </div>
-
-      <div style="clear: both">
-      </div>
-
 
     </div>
   </body>
 </html>
+
