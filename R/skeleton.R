@@ -8,6 +8,8 @@ rocco_skeleton <- function(dir) {
   dir.create(dir, FALSE, TRUE)
 
   file_map <- c(
+    rocco_file(file.path("www", "github-markdown-css", "github-markdown.css")),
+    file.path(dir, "stylesheets", "github-markdown.css"),
     rocco_file(file.path("www", "highlight", "highlight.pack.js")),
     file.path(dir, "assets", "highlight.pack.js"),
     rocco_file(file.path("www", "highlight", "styles", "docco.css")),
