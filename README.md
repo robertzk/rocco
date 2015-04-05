@@ -4,6 +4,14 @@ Literate Documentation for R Packages [![Build Status](https://travis-ci.org/rob
 Literate documentation for R packages in the spirit of Coffeescript's [docco](https://github.com/jashkenas/docco)
 featuring syntax highlighting using [highlight.js](https://highlightjs.org/).
 
+To document your package, simply run
+
+```R
+rocco::rocco("/path/to/package") # Will open browser interactively.
+
+# This will install the rocco docs to /path/to/pkg/inst/docs/rocco
+rocco::rocco("/path/to/pkg", "/path/to/pkg/inst/docs/rocco", browse = FALSE)
+```
 
 Acknowledgements
 ----------------
