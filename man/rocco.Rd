@@ -30,4 +30,14 @@ Literate Documentation For R.
 Given a local package directory, turn the package's R files
 into a literately documented website.
 }
+\examples{
+\dontrun{
+  rocco("/path/to/package") # Will create a temporary directory and
+    # display literate documentation for everything in the R directory
+    # of the package at /path/to/package.
+
+  # The below will simply create a static HTML site without opening it.
+  rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
+}
+}
 

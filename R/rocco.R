@@ -10,10 +10,20 @@
 #'    immediately for browsing. This will be set to \code{\link{interactive()}},
 #'    that is, TRUE if the R session is running interactive and FALSE
 #'    otherwise.
+#' @export
 #' @return TRUE or FALSE according as the documentation process succeeds.
 #     Additional side effects are the creation of the documentation in the
 #'    \code{output_dir} and the launching of the browser if
 #'    \code{browse = TRUE}.
+#' @examples
+#' \dontrun{
+#'   rocco("/path/to/package") # Will create a temporary directory and
+#'     # display literate documentation for everything in the R directory
+#'     # of the package at /path/to/package.
+#'
+#'   # The below will simply create a static HTML site without opening it.
+#'   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
+#' }
 rocco <- function(directory, output_dir, browse) {
 
 }
