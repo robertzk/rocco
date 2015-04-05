@@ -5,3 +5,4 @@ Literate documentation for R packages in the spirit of Coffeescript's [docco](ht
 featuring syntax highlighting using [highlight.js](https://highlightjs.org/).
 
 
+
