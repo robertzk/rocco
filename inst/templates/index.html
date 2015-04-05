@@ -13,12 +13,89 @@
       hljs.initHighlightingOnLoad();
     </script>
 
+    <style type="text/css">
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      div.code-background {
+        float: right;
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        background-color: #f8f8ff;
+        width: calc(60% + 2.5em);
+        right: 0px;
+      }
+
+      code.R {
+        font-size: 1.2em;
+        line-height: 2em;
+        margin-left: -2.5em;
+      }
+
+      code.R > span.spacer {
+        position: relative;
+        left: -3em;
+      }
+
+      div.code > pre {
+        margin: 0;
+      }
+
+      div.markdown {
+        padding: 1em;
+        background: #fff;
+      }
+    </style>
+
   </head>
 
   <body>
     <div class="container">
 
-      {{ rocco_output }}
+      <div class="code-background"></div>
+
+      <div style="clear: both">
+        <div style="float: left; width: 35%" class="markdown">
+          <h1>How's it going?</h1>
+
+          <p> {{ rocco_output }} </p>
+        </div>
+        <div style="float: right; width: 60%" class="code">
+        <pre><code class="R"><span class="spacer">
+          library("test")
+          foo <- function(a, b) {
+            a + b
+          }
+          cat("I am a function")
+          </span>
+        </code></pre>
+        </div>
+      </div>
+
+      <div style="clear: both">
+        <div style="float: left; width: 35%" class="markdown">
+          <h1>How's it going?</h1>
+
+          <p> {{ rocco_output }} </p>
+        </div>
+        <div style="float: right; width: 60%" class="code">
+        <pre><code class="R"><span class="spacer">
+          library("test")
+          foo <- function(a, b) {
+            a + b
+          }
+          cat("I am a function")
+          </span>
+        </code></pre>
+        </div>
+      </div>
+
+      <div style="clear: both">
+      </div>
+
 
     </div>
   </body>
