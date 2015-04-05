@@ -34,3 +34,5 @@ Many thanks go to
 
  * [Sindre Sorhus](https://github.com/sindresorhus) for the [Github Markdown style](https://github.com/sindresorhus/github-markdown-css).
 
+ * [Jeremy Ashkenas](https://github.com/jashkenas) for [the original](https://github.com/jashkenas/docco) inspiration.
+
