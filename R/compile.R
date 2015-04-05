@@ -42,12 +42,12 @@ rocco_sections <- function(lines) {
   rocco_lines <- rocco_lines(lines)
   unname(tapply(
     lines,
-    cumsum(c(0, diff(rocco_lines)) == 1),
+    cumsum(diff(c(FALSE, rocco_lines)) == 1),
     FUN = rocco_section
   ))
 }
 
-rocco_regex <- "^[[:space:]]+## "
+rocco_regex <- "^[[:space:]]*##( |$)"
 
 rocco_lines <- function(lines) {
   grepl(rocco_regex, lines)
