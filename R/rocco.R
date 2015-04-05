@@ -62,7 +62,7 @@ rocco_skeleton <- function(dir) {
 }
 
 compile <- function(pkg_dir, template) {
-  writeLines(whisker::whisker.render(template, rocco_data(pkg_dir)), "template")
+  writeLines(whisker::whisker.render(template, rocco_data(pkg_dir)), template)
 }
 
 rocco_data <- function(pkg_dir) {
