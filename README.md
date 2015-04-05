@@ -24,7 +24,7 @@ if (!require("devtools")) install.packages("devtools")
 devtools::install_github("robertzk/rocco")
 ```
 
-installation instructions
+Acknowledgements
 ----------------
 
 Many thanks go to
