@@ -30,11 +30,13 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
             isTRUE(browse) || isFALSE(browse),
             is_package_directory(directory))
 
-  rocco_(directory, output_dir)
+  try({
+    rocco_(directory, output_dir)
 
-  if (browse) browseURL(file.path(output_dir, "index.html"))
+    if (browse) browseURL(file.path(output_dir, "index.html"))
 
-  TRUE
+    TRUE
+  }, error = function(.) FALSE)
 }
 
 rocco_ <- function(directory, output) {
