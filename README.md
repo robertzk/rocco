@@ -10,7 +10,7 @@ Acknowledgements
 
 Many thanks go to
 
- * The [https://highlightjs.org/](highlight.js) project for the Javascript-based
+ * The [highlight.js](https://highlightjs.org/) project for the Javascript-based
    R syntax highlighting.
 
  * [Sindre Sorhus](https://github.com/sindresorhus) for the [Github Markdown style](https://github.com/sindresorhus/github-markdown-css).

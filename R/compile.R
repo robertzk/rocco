@@ -10,7 +10,6 @@ compile <- function(pkg_dir, template, out_file) {
 }
 
 rocco_data <- function(pkg_dir) {
-  # TODO: (RK) Fill this in.
   list(
     package_description = gsub("[[:space:]]+", " ", package_description(pkg_dir)),
     package_title = package_title(pkg_dir),
