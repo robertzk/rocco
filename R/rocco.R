@@ -42,27 +42,38 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
 rocco_ <- function(directory, output) {
   rocco_skeleton(output) 
 
-  compile(directory, file.path(output, "index.html"))
+  template <- readLines(file.path(output, "index.html"))
+  compile(directory, template, file.path(output, "index.html"))
 }
 
 rocco_skeleton <- function(dir) {
   dir.create(dir, FALSE, TRUE)
 
-  file_map <- list(
+  file_map <- c(
     rocco_file(file.path("www", "highlight", "highlight.pack.js")),
     file.path(dir, "assets", "highlight.pack.js"),
+    rocco_file(file.path("www", "highlight", "styles", "docco.css")),
+    file.path(dir, "stylesheets", "rocco.css"),
     rocco_file(file.path("www", "highlight", "styles", "docco.css")),
     file.path(dir, "stylesheets", "rocco.css"),
     rocco_file(file.path("templates", "index.html")),
     file.path(dir, "index.html")
   )
 
-  Map(file.copy, file_map[c(TRUE, FALSE)], file_map[c(FALSE, TRUE)],
-      recursive = TRUE, overwrite = TRUE)
+  lapply(file_map[c(FALSE, TRUE)], unlink, force = TRUE, recursive = TRUE)
+  lapply(dirname(file_map[c(FALSE, TRUE)]), dir.create,
+         recursive = TRUE, showWarnings = FALSE)
+
+  suppressWarnings(
+    Map(file.copy, file_map[c(TRUE, FALSE)], file_map[c(FALSE, TRUE)],
+        overwrite = TRUE)
+  )
 }
 
-compile <- function(pkg_dir, template) {
-  writeLines(whisker::whisker.render(template, rocco_data(pkg_dir)), template)
+compile <- function(pkg_dir, template, template_file) {
+  writeLines(whisker::whisker.render(
+   template, rocco_data(pkg_dir)
+  ), template_file)
 }
 
 rocco_data <- function(pkg_dir) {
