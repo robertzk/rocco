@@ -27,5 +27,8 @@
 rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
   stopifnot(is.character(directory), length(directory) == 1,
             is.character(output_dir), length(output_dir) == 1,
-            isTRUE(browse) || isFALSE(browse))
+            isTRUE(browse) || isFALSE(browse),
+            is_package_directory(directory))
+
+
 }
