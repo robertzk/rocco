@@ -24,6 +24,6 @@
 #'   # The below will simply create a static HTML site without opening it.
 #'   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 #' }
-rocco <- function(directory, output_dir, browse) {
+rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
 
 }
