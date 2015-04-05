@@ -13,7 +13,18 @@ rocco::rocco("/path/to/package") # Will open browser interactively.
 rocco::rocco("/path/to/pkg", "/path/to/pkg/inst/docs/rocco", browse = FALSE)
 ```
 
-Acknowledgements
+Installation
+------------
+
+This package is not yet available from CRAN (as of April 4, 2015).
+To install the latest development builds directly from GitHub, run this instead:
+
+```R
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("robertzk/rocco")
+```
+
+installation instructions
 ----------------
 
 Many thanks go to
