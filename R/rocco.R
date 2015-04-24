@@ -36,8 +36,8 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
 
     if (browse) browseURL(file.path(output_dir, "index.html"))
 
-    TRUE
-  }, error = function(.) FALSE)
+    invisible(TRUE)
+  }, error = function(.) (FALSE))
 }
 
 rocco_ <- function(directory, output) {
