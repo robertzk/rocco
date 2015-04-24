@@ -6,7 +6,8 @@
 \alias{rocco-package}
 \title{Literate Documentation For R.}
 \usage{
-rocco(directory, output_dir = tempdir(), browse = interactive())
+rocco(directory, output_dir = tempdir(), browse = interactive(),
+  gh_pages = FALSE)
 }
 \arguments{
 \item{directory}{character. The package directory to document.}
@@ -18,6 +19,9 @@ By default, an extemporaneously-generated temporary directory.}
 immediately for browsing. This will be set to \code{\link{interactive()}},
 that is, TRUE if the R session is running interactive and FALSE
 otherwise.}
+
+\item{gh_pages}{logical. If set to true, rocco docs will be served on
+your gh-pages branch.}
 }
 \value{
 TRUE or FALSE according as the documentation process succeeds.
