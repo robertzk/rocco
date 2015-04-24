@@ -25,6 +25,7 @@
 #'   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 #' }
 rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
+  if (missing(directory)) directory <- "."
   stopifnot(is.character(directory), length(directory) == 1,
             is.character(output_dir), length(output_dir) == 1,
             isTRUE(browse) || isFALSE(browse),
@@ -40,9 +41,8 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
 }
 
 rocco_ <- function(directory, output) {
-  rocco_skeleton(output) 
+  rocco_skeleton(output)
 
   template <- readLines(file.path(output, "index.html"))
   compile(directory, template, file.path(output, "index.html"))
 }
-
