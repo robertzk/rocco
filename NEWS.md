@@ -1,7 +1,8 @@
 # Version 0.1.1
 
-  * Push the created docs to gh-pages branch of your repo. Your documentation should
-    live side-by-side with your code
+  * Added the ability to push the generated documentation to the
+    [gh-pages](https://robertzk.github.io/rocco) branch of your repo.
+    When calling `rocco::rocco`, set `gh_pages = TRUE`.
 
 # Version 0.1.0
 
