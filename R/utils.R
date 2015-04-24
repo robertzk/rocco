@@ -47,8 +47,7 @@ description_file_attribute <- function(pkg_path, attribute) {
 }
 
 ## Don't want to import devtools because of in_dir
-in_dir <- function(new, code)
-{
+in_dir <- function(new, code) {
   old <- setwd(new)
   on.exit(setwd(old))
   force(code)
