@@ -10,6 +10,8 @@
 #'    immediately for browsing. This will be set to \code{\link{interactive()}},
 #'    that is, TRUE if the R session is running interactive and FALSE
 #'    otherwise.
+#' @param gh_pages logical. If set to true, rocco docs will be served on
+#'    your gh-pages branch.
 #' @export
 #' @return TRUE or FALSE according as the documentation process succeeds.
 #     Additional side effects are the creation of the documentation in the
@@ -24,7 +26,8 @@
 #'   # The below will simply create a static HTML site without opening it.
 #'   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 #' }
-rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
+rocco <- function(directory, output_dir = tempdir(), browse = interactive(), gh_pages = FALSE) {
+  if (missing(directory)) directory <- "."
   stopifnot(is.character(directory), length(directory) == 1,
             is.character(output_dir), length(output_dir) == 1,
             isTRUE(browse) || isFALSE(browse),
@@ -32,17 +35,18 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive()) {
 
   tryCatch({
     rocco_(directory, output_dir)
+    if (isTRUE(gh_pages)) {
+      `commit_to_gh_pages!`(directory, output_dir)
+    }
 
     if (browse) browseURL(file.path(output_dir, "index.html"))
-
-    TRUE
-  }, error = function(.) FALSE)
+    invisible(TRUE)
+  }, error = function(.) invisible(FALSE))
 }
 
 rocco_ <- function(directory, output) {
-  rocco_skeleton(output) 
+  rocco_skeleton(output)
 
   template <- readLines(file.path(output, "index.html"))
   compile(directory, template, file.path(output, "index.html"))
 }
-

@@ -1,4 +1,4 @@
-Literate Documentation for R Packages [![Build Status](https://travis-ci.org/robertzk/rocco.svg?branch=master)](https://travis-ci.org/robertzk/rocco) [![Coverage Status](https://coveralls.io/repos/robertzk/rocco/badge.svg?branch=master)](https://coveralls.io/r/robertzk/rocco)
+Literate Documentation for R Packages [![Build Status](https://travis-ci.org/robertzk/rocco.svg?branch=master)](https://travis-ci.org/robertzk/rocco) [![Coverage Status](https://coveralls.io/repos/robertzk/rocco/badge.svg?branch=master)](https://coveralls.io/r/robertzk/rocco) [![Documentation](https://img.shields.io/badge/rocco--docs-%E2%9C%93-blue.svg)](http://robertzk.github.io/rocco/)
 --------------------
 
 Literate documentation for R packages in the spirit of Coffeescript's [docco](https://github.com/jashkenas/docco)
@@ -8,6 +8,9 @@ To document your package, simply run
 
 ```R
 rocco::rocco("/path/to/package") # Will open browser interactively.
+
+# This will build the docs and push them to the repos gh-pages branch
+rocco::rocco("/path/to/package", gh_pages = TRUE)
 
 # This will install the rocco docs to /path/to/pkg/inst/docs/rocco
 rocco::rocco("/path/to/pkg", "/path/to/pkg/inst/docs/rocco", browse = FALSE)
@@ -35,4 +38,3 @@ Many thanks go to
  * [Sindre Sorhus](https://github.com/sindresorhus) for the [Github Markdown style](https://github.com/sindresorhus/github-markdown-css).
 
  * [Jeremy Ashkenas](https://github.com/jashkenas) for [the original](https://github.com/jashkenas/docco) inspiration.
-
