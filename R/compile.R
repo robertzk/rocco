@@ -1,5 +1,5 @@
 #' Compile a Rocco Page From a Template.
-#' 
+#'
 #' @param pkg_dir character. A package directory with rocco-documented R files.
 #' @param template character. The whisker template to use.
 #' @param out_file character. The output file.
@@ -13,13 +13,14 @@ rocco_data <- function(pkg_dir) {
   list(
     package_description = gsub("[[:space:]]+", " ", package_description(pkg_dir)),
     package_title = package_title(pkg_dir),
+    rocco_version = as.character(packageVersion('rocco')),
     sections = package_sections(pkg_dir)
   )
 }
 
 package_sections <- function(pkg_dir) {
   do.call(c, lapply(
-    list.files(file.path(pkg_dir, "R"), full.names = TRUE), 
+    list.files(file.path(pkg_dir, "R"), full.names = TRUE),
     file_section
   ))
 }
@@ -69,4 +70,3 @@ markdown_to_html <- function(text) {
     markdown::markdownToHTML(text = text, fragment.only = TRUE)
   } else ""
 }
-
