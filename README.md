@@ -1,4 +1,4 @@
-Literate Docs for R Packages [![Build Status](https://travis-ci.org/robertzk/rocco.svg?branch=master)](https://travis-ci.org/robertzk/rocco) [![Coverage Status](https://coveralls.io/repos/robertzk/rocco/badge.svg?branch=master)](https://coveralls.io/r/robertzk/rocco) [![Documentation](https://img.shields.io/badge/rocco--docs-%E2%9C%93-blue.svg)](http://robertzk.github.io/rocco/)
+Literate Docs for R Packages [![Build Status](https://travis-ci.org/robertzk/rocco.svg?branch=master)](https://travis-ci.org/robertzk/rocco) [![Documentation](https://img.shields.io/badge/rocco--docs-%E2%9C%93-blue.svg)](http://robertzk.github.io/rocco/)
 --------------------
 
 Literate documentation for R packages in the spirit of Coffeescript's [docco](https://github.com/jashkenas/docco)
