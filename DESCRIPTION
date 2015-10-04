@@ -15,7 +15,5 @@ Imports:
     whisker,
     markdown
 Suggests:
-    knitr,
-    microbenchmark,
     testthat
 Roxygen: list(wrap = FALSE)
