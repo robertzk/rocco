@@ -7,7 +7,7 @@
 #' @param output_dir character. The directory to output the static HTML site.
 #'    By default, an extemporaneously-generated temporary directory.
 #' @param browse logical. Whether or not to launch the documentation
-#'    immediately for browsing. This will be set to \code{\link{interactive()}},
+#'    immediately for browsing. This will be set to \code{\link{interactive}()},
 #'    that is, TRUE if the R session is running interactive and FALSE
 #'    otherwise.
 #' @param gh_pages logical. If set to true, rocco docs will be served on
