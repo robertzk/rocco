@@ -28,5 +28,12 @@ rocco_skeleton <- function(dir) {
     Map(file.copy, file_map[c(TRUE, FALSE)], file_map[c(FALSE, TRUE)],
         overwrite = TRUE)
   )
+
+  if (nzchar(rocco:::rocco_file(file.path("web", "index.html")))) {
+    staticdoc_files <- dir(rocco:::rocco_file("web"), recursive = TRUE)
+    for (file in staticdoc_files) {
+      file.copy(file, dir, overwrite = TRUE)
+    }
+  }
 }
 
