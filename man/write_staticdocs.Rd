@@ -6,6 +6,9 @@
 \usage{
 write_staticdocs(package_dir)
 }
+\arguments{
+\item{package_dir}{character. The directory of the package to write staticdocs for.}
+}
 \description{
 Writes staticdocs if they don't already exist.
 }

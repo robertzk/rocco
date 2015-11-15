@@ -1,4 +1,5 @@
 #' Writes staticdocs if they don't already exist.
+#' @param package_dir character. The directory of the package to write staticdocs for.
 write_staticdocs <- function(package_dir) {
   check_for_staticdocs_package()
   if (!staticdocs_index_exists(package_dir)) {
