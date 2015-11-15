@@ -56,22 +56,26 @@ load_staticdocs <- function(directory, output) {
 
 
 #' Check whether the staticdocs folder exists.
+#' @param directory character. The directory of the package to check for staticdocs.
 staticdocs_folder_exists <- function(directory) {
   file.exists(file.path(directory, "inst", "staticdocs"))
 }
 
 #' Check whether a staticdoc index file exists.
+#' @param directory character. The directory of the package to check for staticdocs.
 staticdocs_index_exists <- function(directory) {
   staticdocs_folder_exists(directory) &&
     file.exists(file.path(directory, "inst", "staticdocs", "index.r"))
 }
 
 #' Check whether staticdoc files have been written.
+#' @param directory character. The directory of the package to check for staticdocs.
 staticdocs_written <- function(directory) {
   file.exists(file.path(directory, "inst", "web", "index.html"))
 }
 
 #' Check whether staticdocs exist.
+#' @param directory character. The directory of the package to check for staticdocs.
 staticdocs_exist <- function(directory) {
   staticdocs_index_exists(directory) && staticdocs_written(directory)
 }

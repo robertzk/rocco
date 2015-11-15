@@ -6,6 +6,9 @@
 \usage{
 staticdocs_index_exists(directory)
 }
+\arguments{
+\item{directory}{character. The directory of the package to check for staticdocs.}
+}
 \description{
 Check whether a staticdoc index file exists.
 }

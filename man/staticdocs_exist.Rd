@@ -6,6 +6,9 @@
 \usage{
 staticdocs_exist(directory)
 }
+\arguments{
+\item{directory}{character. The directory of the package to check for staticdocs.}
+}
 \description{
 Check whether staticdocs exist.
 }
