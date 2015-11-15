@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Index. rocco 0.2.1</title>
+<title>Index. rocco 0.1.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Robert Krzyzanowski &lt;technoguyrob@gmail.com&gt;">
 
@@ -32,7 +32,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">rocco 0.2.1</a>
+      <a class="brand" href="#">rocco 0.1.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -51,19 +51,12 @@
   <div class="span8">
     <h2>Literate Docs for R Packages <a href="https://travis-ci.org/robertzk/rocco"><img src="https://travis-ci.org/robertzk/rocco.svg?branch=master" alt="Build Status"/></a> <a href="http://robertzk.github.io/rocco/"><img src="https://img.shields.io/badge/rocco--docs-%E2%9C%93-blue.svg" alt="Documentation"/></a></h2>
 
-<p><strong>Rocco</strong> is literate documentation for R packages in the spirit of Coffeescript&#39;s <a href="https://github.com/jashkenas/docco">docco</a>
+<p>Literate documentation for R packages in the spirit of Coffeescript&#39;s <a href="https://github.com/jashkenas/docco">docco</a>
 featuring syntax highlighting using <a href="https://highlightjs.org/">highlight.js</a>.</p>
-
-<p>This package allows you to build both Rocco docs and <a href="https://github.com/hadley/staticdocs">staticdocs</a> for your package.</p>
-
-<h2></h2>
 
 <p>To document your package, simply run</p>
 
 <pre><code class="R">rocco::rocco(&quot;/path/to/package&quot;) # Will open browser interactively.
-
-# This will build *just* Rocco docs, not staticdocs.
-rocco::rocco(&quot;/path/to/package&quot;, staticdocs = FALSE)
 
 # This will build the docs and push them to the repos gh-pages branch
 rocco::rocco(&quot;/path/to/package&quot;, gh_pages = TRUE)
@@ -89,7 +82,6 @@ devtools::install_github(&quot;robertzk/rocco&quot;)
 <li><p>The <a href="https://highlightjs.org/">highlight.js</a> project for the Javascript-based
 R syntax highlighting.</p></li>
 <li><p><a href="https://github.com/sindresorhus">Sindre Sorhus</a> for the <a href="https://github.com/sindresorhus/github-markdown-css">Github Markdown style</a>.</p></li>
-<li><p><a href="https://github.com/hadley">Hadley Wickham</a> for <a href="https://github.com/hadley/staticdocs">staticdocs</a>.</p></li>
 <li><p><a href="https://github.com/jashkenas">Jeremy Ashkenas</a> for <a href="https://github.com/jashkenas/docco">the original</a> inspiration.</p></li>
 </ul>
 
@@ -102,9 +94,6 @@ R syntax highlighting.</p></li>
     <ul class="index">
         
       <li>
-        <code><a href="check_for_staticdocs_package.html">check_for_staticdocs_package</a></code><br />Checks that the staticdocs package is installed.</li>
-            
-      <li>
         <code><a href="compile.html">compile</a></code><br />Compile a Rocco Page From a Template.</li>
             
       <li>
@@ -115,21 +104,6 @@ R syntax highlighting.</p></li>
             
       <li>
         <code><a href="rocco_skeleton.html">rocco_skeleton</a></code><br />Create a Skeleton for Rocco Documentation.</li>
-            
-      <li>
-        <code><a href="staticdocs_exist.html">staticdocs_exist</a></code><br />Check whether staticdocs exist.</li>
-            
-      <li>
-        <code><a href="staticdocs_folder_exists.html">staticdocs_folder_exists</a></code><br />Check whether the staticdocs folder exists.</li>
-            
-      <li>
-        <code><a href="staticdocs_index_exists.html">staticdocs_index_exists</a></code><br />Check whether a staticdoc index file exists.</li>
-            
-      <li>
-        <code><a href="staticdocs_written.html">staticdocs_written</a></code><br />Check whether staticdoc files have been written.</li>
-            
-      <li>
-        <code><a href="write_staticdocs.html">write_staticdocs</a></code><br />Writes staticdocs if they don't already exist.</li>
     
     </ul>
   </div>
@@ -139,7 +113,7 @@ R syntax highlighting.</p></li>
     <h2>Dependencies</h2>
     <ul>
       
-      <li><strong>Imports</strong>: whisker, markdown, devtools</li>
+      <li><strong>Imports</strong>: whisker, markdown</li>
       <li><strong>Suggests</strong>: testthat, staticdocs</li>
       
     </ul>
