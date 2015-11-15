@@ -3,30 +3,30 @@
 #' Given a target directory, this will copy over the necessary assets to
 #' create the initial docco template.
 #'
-#' @param dir character. The directory to create the skeleton in.
-rocco_skeleton <- function(dir) {
-  dir.create(dir, FALSE, TRUE)
+#' @param directory character. The directory Rocco is running in.
+#' @param output character. The directory to create the skeleton in.
+rocco_skeleton <- function(directory, output) {
+  dir.create(output, showWarnings = FALSE, recursive = TRUE)
 
+  ## List of existing files and where they should be moved to.
   file_map <- c(
     rocco_file(file.path("www", "github-markdown-css", "github-markdown.css")),
-    file.path(dir, "stylesheets", "github-markdown.css"),
+      file.path(output, "stylesheets", "github-markdown.css"),
     rocco_file(file.path("www", "highlight", "highlight.pack.js")),
-    file.path(dir, "assets", "highlight.pack.js"),
+      file.path(output, "assets", "highlight.pack.js"),
     rocco_file(file.path("www", "highlight", "styles", "docco.css")),
-    file.path(dir, "stylesheets", "rocco.css"),
-    rocco_file(file.path("www", "highlight", "styles", "docco.css")),
-    file.path(dir, "stylesheets", "rocco.css"),
+      file.path(output, "stylesheets", "rocco.css"),
     rocco_file(file.path("templates", "index.html")),
-    file.path(dir, "index.html")
+      file.path(output, "index.html")
   )
 
-  lapply(file_map[c(FALSE, TRUE)], unlink, force = TRUE, recursive = TRUE)
-  lapply(dirname(file_map[c(FALSE, TRUE)]), dir.create,
-         recursive = TRUE, showWarnings = FALSE)
+  destinations <- file_map[c(FALSE, TRUE)]
+  sources <- file_map[c(TRUE, FALSE)]
 
-  suppressWarnings(
-    Map(file.copy, file_map[c(TRUE, FALSE)], file_map[c(FALSE, TRUE)],
-        overwrite = TRUE)
-  )
+  lapply(destinations, unlink, force = TRUE, recursive = TRUE)
+  lapply(dirname(destinations), dir.create, recursive = TRUE, showWarnings = FALSE)
+
+  suppressWarnings(Map(file.copy, sources, destinations, overwrite = TRUE))
+
+  if (staticdocs_exist(directory)) { load_staticdocs(directory, output) }
 }
-

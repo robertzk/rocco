@@ -1,3 +1,9 @@
+# Version 0.2
+  
+  * Now Rocco also generates [staticdocs](https://github.com/hadley/staticdocs).  It creates all the necessary pre-files for staticdocs so you don't have to build them yourself.
+  * This repo now has staticdocs.
+  * Removed pending files.
+
 # Version 0.1.1
 
   * Added the ability to push the generated documentation to the
