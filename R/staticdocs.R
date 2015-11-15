@@ -62,7 +62,6 @@ dir_exists <- function(directory, ...) {
 }
 
 #' Create a directory if it doesn't exist.
-#' @param file character. The name of the file to check within the directory.
 #' @inheritParams dir_exists
 dir_create <- function(directory, ...) {
   dir.create(file.path(directory, ...), showWarnings = FALSE)

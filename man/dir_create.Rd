@@ -10,8 +10,6 @@ dir_create(directory, ...)
 \item{directory}{character. The directory of the package to check for staticdocs.}
 
 \item{...}{list. The folder structure to pass to \code{file.path}.}
-
-\item{file}{character. The name of the file to check within the directory.}
 }
 \description{
 Create a directory if it doesn't exist.
