@@ -3,12 +3,9 @@
 write_staticdocs <- function(package_dir) {
   check_for_staticdocs_package()
   devtools::document(package_dir)
-  if (!staticdocs_index_exists(package_dir)) {
-    if (!staticdocs_folder_exists(package_dir)) {
-      dir.create(file.path(package_dir, "inst", "staticdocs"), showWarnings = FALSE)
-    }
-    file.create(file.path(package_dir, "inst", "staticdocs", "index.r"))
-  }
+  if (!inst_exists(package_dir)) { create_inst(package_dir) }
+  if (!staticdocs_index_exists(package_dir)) { create_staticdocs_index(package_dir) }
+  if (!staticdocs_folder_exists(package_dir)) { create_staticdocs_folder(package_dir) }
   staticdocs::build_site(package_dir, launch = FALSE)
 }
 
@@ -32,9 +29,9 @@ load_staticdocs <- function(directory, output) {
     lapply(subdirs, dir.create, showWarnings = FALSE)
   }
   determine_dir <- function(dir, file) {
-    file_split <- strsplit(file, "/")[[1]]
-    if (length(file_split) > 1) {
-      file.path(dir, file_split[[1]])
+    dir_split <- strsplit(file, "/")[[1]]
+    if (length(dir_split) > 1) {
+      file.path(dir, dir_split[[1]])
     } else { dir }
   }
   create_staticdoc_files <- function(files, source_dir, destination) {
@@ -57,27 +54,60 @@ load_staticdocs <- function(directory, output) {
 }
 
 
-#' Check whether the staticdocs folder exists.
+#' Check to see if a directory exists within the package.
 #' @param directory character. The directory of the package to check for staticdocs.
+#' @param ... list. The folder structure to pass to \code{file.path}.
+dir_exists <- function(directory, ...) {
+  file.exists(file.path(directory, ...))
+}
+
+#' Create a directory if it doesn't exist.
+#' @inheritParams dir_exists
+dir_create <- function(directory, ...) {
+  dir.create(file.path(directory, ...), showWarnings = FALSE)
+}
+
+#' Check whether the inst folder exists.
+#' @inheritParams dir_exists
+inst_exists <- function(directory) { dir_exists(directory, "inst") }
+
+#' Create the inst directory.
+#' @inheritParams dir_exists
+create_inst <- function(directory) { dir_create(directory, "inst") }
+
+#' Check whether the staticdocs folder exists.
+#' @inheritParams dir_exists
 staticdocs_folder_exists <- function(directory) {
-  file.exists(file.path(directory, "inst", "staticdocs"))
+  dir_exists(directory, "inst", "staticdocs")
+}
+
+#' Create the staticdocs directory.
+#' @inheritParams dir_exists
+create_staticdocs_folder <- function(directory) {
+  dir_create(directory, "inst", "staticdocs")
 }
 
 #' Check whether a staticdoc index file exists.
-#' @param directory character. The directory of the package to check for staticdocs.
+#' @inheritParams dir_exists
 staticdocs_index_exists <- function(directory) {
   staticdocs_folder_exists(directory) &&
-    file.exists(file.path(directory, "inst", "staticdocs", "index.r"))
+   dir_exists(directory, "inst", "staticdocs", "index.r")
+}
+
+#' Create the staticdocs index.
+#' @inheritParams dir_exists
+create_staticdocs_index <- function(directory) {
+  dir_create(directory, "inst", "staticdocs", "index.r")
 }
 
 #' Check whether staticdoc files have been written.
-#' @param directory character. The directory of the package to check for staticdocs.
+#' @inheritParams dir_exists
 staticdocs_written <- function(directory) {
-  file.exists(file.path(directory, "inst", "web", "index.html"))
+  dir_exists(directory, "inst", "web", "index.html")
 }
 
 #' Check whether staticdocs exist.
-#' @param directory character. The directory of the package to check for staticdocs.
+#' @inheritParams dir_exists
 staticdocs_exist <- function(directory) {
   staticdocs_index_exists(directory) && staticdocs_written(directory)
 }

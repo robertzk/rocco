@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>compile. rocco 0.2.1.2</title>
+<title>dir_exists. rocco 0.2.1.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -47,33 +47,31 @@
         
       </header>
       
-      <h1>Compile a Rocco Page From a Template.</h1>
+      <h1>Check to see if a directory exists within the package.</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>compile(pkg_dir, template, out_file)</div></pre>
+    <pre><div>dir_exists(directory, ...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
-      <dt>pkg_dir</dt>
-      <dd>character. A package directory with rocco-documented R files.</dd>
-      <dt>template</dt>
-      <dd>character. The whisker template to use.</dd>
-      <dt>out_file</dt>
-      <dd>character. The output file.</dd>
+      <dt>directory</dt>
+      <dd>character. The directory of the package to check for staticdocs.</dd>
+      <dt>...</dt>
+      <dd>list. The folder structure to pass to <code>file.path</code>.</dd>
     </dl>
     
     <div class="Description">
       <h2>Description</h2>
 
-      <p>Compile a Rocco Page From a Template.</p>
+      <p>Check to see if a directory exists within the package.</p>
   
     </div>
       </div>
   <div class="span4">
     <!-- <ul>
-      <li>compile</li>
+      <li>dir_exists</li>
     </ul>
     <ul>
       
