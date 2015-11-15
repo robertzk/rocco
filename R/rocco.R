@@ -36,7 +36,7 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive(),
             is.character(output_dir), length(output_dir) == 1,
             is_package_directory(directory))
 
-  if (isTRUE(staticdocs) && !staticdocs_exist()) { write_staticdocs(directory) }
+  if (isTRUE(staticdocs)) { write_staticdocs(directory) }
 
   if (isTRUE(rocco)) { write_rocco_docs(directory, output_dir) }
 
@@ -54,7 +54,7 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive(),
 
 
 write_rocco_docs <- function(directory, output) {
-  rocco_skeleton(output)
+  rocco_skeleton(directory, output)
 
   template <- readLines(file.path(output, "index.html"))
   compile(directory, template, file.path(output, "index.html"))

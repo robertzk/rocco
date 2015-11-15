@@ -4,10 +4,12 @@
 \alias{load_staticdocs}
 \title{Add staticdocs into the Rocco directory.}
 \usage{
-load_staticdocs(dir)
+load_staticdocs(directory, output)
 }
 \arguments{
-\item{dir}{character. The directory of the Rocco skeleton.}
+\item{directory}{character. The directory Rocco is running in.}
+
+\item{output}{character. The directory to create the skeleton in.}
 }
 \description{
 Since Rocco and Staticdocs conflict for gh-pages and we often want both,

@@ -4,7 +4,7 @@
 \alias{staticdocs_index_exists}
 \title{Check whether a staticdoc index file exists.}
 \usage{
-staticdocs_index_exists()
+staticdocs_index_exists(directory)
 }
 \description{
 Check whether a staticdoc index file exists.

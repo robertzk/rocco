@@ -4,7 +4,7 @@
 \alias{staticdocs_exist}
 \title{Check whether staticdocs exist.}
 \usage{
-staticdocs_exist()
+staticdocs_exist(directory)
 }
 \description{
 Check whether staticdocs exist.

@@ -1,7 +1,7 @@
 #' Writes staticdocs if they don't already exist.
 write_staticdocs <- function(package_dir) {
-  if (!staticdocs_index_exists()) {
-    if (!staticdocs_folder_exists()) {
+  if (!staticdocs_index_exists(package_dir)) {
+    if (!staticdocs_folder_exists(package_dir)) {
       dir.create(file.path(package_dir, "staticdocs"), showWarnings = FALSE)
     }
     file.create(file.path(package_dir, "staticdocs", "index.r"))
@@ -16,8 +16,9 @@ write_staticdocs <- function(package_dir) {
 #' this will resolve the tension and create one harmonious site with rocco
 #' docs located at index.html and staticdocs located at staticdocs/index.html.
 #'
-#' @param dir character. The directory of the Rocco skeleton.
-load_staticdocs <- function(dir) {
+#' @param directory character. The directory Rocco is running in.
+#' @param output character. The directory to create the skeleton in.
+load_staticdocs <- function(directory, output) {
   create_staticdoc_directory <- function(dir) {
     unlink(dir, recursive = TRUE, force = TRUE)
     dir.create(dir, showWarnings = FALSE)
@@ -29,46 +30,48 @@ load_staticdocs <- function(dir) {
       dir.create(subdir, showWarnings = FALSE)
     }
   }
-  create_staticdoc_files <- function(files, dir) {
+  create_staticdoc_files <- function(files, source_dir, destination) {
     for (file in files) {
-      from_file <- rocco_file(file.path("web", file))
+      to_dir <- file.path(destination, "staticdocs")
+      from_file <- file.path(source_dir, file)
       file_split <- strsplit(file, "/")[[1]]
-      to_dir <- if (length(file_split) > 1) {
-        file.path(dir, file_split[[1]])
-      } else { dir }
+      if (length(file_split) > 1) {
+        to_dir <- file.path(to_dir, file_split[[1]])
+      }
       file.copy(from_file, to_dir, overwrite = TRUE)
     }
   }
 
-  staticdoc_dir <- file.path(dir, "staticdocs")
+  staticdoc_dir <- file.path(output, "staticdocs")
   create_staticdoc_directory(staticdoc_dir)
+  web_dir <- file.path(directory, "inst", "web")
 
-  staticdoc_subdirs <- grep(".html", dir(rocco_file("web")), value = TRUE,
+  staticdoc_subdirs <- grep(".html", dir(web_dir), value = TRUE,
     fixed = FALSE, invert = TRUE)
   create_staticdoc_folder_tree(staticdoc_dir, staticdoc_subdirs)
 
-  staticdoc_files <- dir(rocco_file("web"), recursive = TRUE)
-  create_staticdoc_files(staticdoc_files, staticdoc_dir)
+  staticdoc_files <- dir(web_dir, recursive = TRUE)
+  create_staticdoc_files(staticdoc_files, source_dir = web_dir, destination = output)
 }
 
 
 #' Check whether the staticdocs folder exists.
-staticdocs_folder_exists <- function() {
-  nzchar(rocco_file("staticdocs"))
+staticdocs_folder_exists <- function(directory) {
+  file.exists(file.path(directory, "inst", "staticdocs"))
 }
 
 #' Check whether a staticdoc index file exists.
-staticdocs_index_exists <- function() {
-  staticdocs_folder_exists() &&
-    nzchar(rocco_file(file.path("staticdocs", "index.r")))
+staticdocs_index_exists <- function(directory) {
+  staticdocs_folder_exists(directory) &&
+    file.exists(file.path(directory, "inst", "staticdocs", "index.r"))
 }
 
 #' Check whether staticdoc files have been written.
-staticdocs_written <- function() {
-  nzchar(rocco_file(file.path("web", "index.html")))
+staticdocs_written <- function(directory) {
+  file.exists(file.path(directory, "inst", "web", "index.html"))
 }
 
 #' Check whether staticdocs exist.
-staticdocs_exist <- function() {
-  staticdocs_index_exists() && staticdocs_written()
+staticdocs_exist <- function(directory) {
+  staticdocs_index_exists(directory) && staticdocs_written(directory)
 }

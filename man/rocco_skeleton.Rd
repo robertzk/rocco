@@ -4,10 +4,12 @@
 \alias{rocco_skeleton}
 \title{Create a Skeleton for Rocco Documentation.}
 \usage{
-rocco_skeleton(dir)
+rocco_skeleton(directory, output)
 }
 \arguments{
-\item{dir}{character. The directory to create the skeleton in.}
+\item{directory}{character. The directory Rocco is running in.}
+
+\item{output}{character. The directory to create the skeleton in.}
 }
 \description{
 Given a target directory, this will copy over the necessary assets to

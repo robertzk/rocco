@@ -4,7 +4,7 @@
 \alias{staticdocs_written}
 \title{Check whether staticdoc files have been written.}
 \usage{
-staticdocs_written()
+staticdocs_written(directory)
 }
 \description{
 Check whether staticdoc files have been written.
