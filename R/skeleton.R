@@ -24,7 +24,7 @@ rocco_skeleton <- function(directory, output) {
   sources <- file_map[c(TRUE, FALSE)]
 
   lapply(destinations, unlink, force = TRUE, recursive = TRUE)
-  lapply(dirname(destinations), dir.create, recursive = TRUE, showWarnings = FALSE)
+  lapply(unique(dirname(destinations)), dir.create, recursive = TRUE, showWarnings = FALSE)
 
   suppressWarnings(Map(file.copy, sources, destinations, overwrite = TRUE))
 
