@@ -1,3 +1,7 @@
+# Version 0.2.1.2
+  * If the `inst` directory itself doesn't exist, it will be created.
+  * Refactoring the file checking and creation logic.
+
 # Version 0.2.1.1
 
   * Fixes location of the staticdoc file written by Rocco.
