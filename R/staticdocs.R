@@ -5,9 +5,9 @@ write_staticdocs <- function(package_dir) {
   devtools::document(package_dir)
   if (!staticdocs_index_exists(package_dir)) {
     if (!staticdocs_folder_exists(package_dir)) {
-      dir.create(file.path(package_dir, "staticdocs"), showWarnings = FALSE)
+      dir.create(file.path(package_dir, "inst", "staticdocs"), showWarnings = FALSE)
     }
-    file.create(file.path(package_dir, "staticdocs", "index.r"))
+    file.create(file.path(package_dir, "inst", "staticdocs", "index.r"))
   }
   staticdocs::build_site(package_dir, launch = FALSE)
 }
