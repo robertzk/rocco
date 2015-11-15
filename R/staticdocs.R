@@ -1,5 +1,6 @@
 #' Writes staticdocs if they don't already exist.
 write_staticdocs <- function(package_dir) {
+  check_for_staticdocs_package()
   if (!staticdocs_index_exists(package_dir)) {
     if (!staticdocs_folder_exists(package_dir)) {
       dir.create(file.path(package_dir, "staticdocs"), showWarnings = FALSE)
@@ -74,4 +75,13 @@ staticdocs_written <- function(directory) {
 #' Check whether staticdocs exist.
 staticdocs_exist <- function(directory) {
   staticdocs_index_exists(directory) && staticdocs_written(directory)
+}
+
+
+#' Checks that the staticdocs package is installed.
+check_for_staticdocs_package <- function() {
+  if (!(is.element("staticdocs", utils::installed.packages()[, 1]))) {
+    stop("You must install the staticdocs package to run staticdocs. ",
+      "You can get it from https://github.com/hadley/staticdocs.", call. = FALSE)
+  }
 }
