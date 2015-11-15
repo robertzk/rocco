@@ -7,7 +7,7 @@
 \title{Literate Documentation For R.}
 \usage{
 rocco(directory, output_dir = tempdir(), browse = interactive(),
-  staticdocs = TRUE, gh_pages = FALSE)
+  rocco = TRUE, staticdocs = TRUE, gh_pages = FALSE)
 }
 \arguments{
 \item{directory}{character. The package directory to document.}
@@ -20,9 +20,10 @@ immediately for browsing. This will be set to \code{\link{interactive}()},
 that is, TRUE if the R session is running interactive and FALSE
 otherwise.}
 
-\item{staticdocs}{logical. Whether or not to also create staticdocs in addition
-to rocco docs.  Staticdocs are from Hadley's staticdocs package.
-<https://github.com/hadley/staticdocs>  Defaults to \code{TRUE}.}
+\item{rocco}{logical. Whether or not to create rocco docs.  Defaults to \code{TRUE}.}
+
+\item{staticdocs}{logical. Whether or not to create staticdocs.  Staticdocs are
+from Hadley's staticdocs package. <https://github.com/hadley/staticdocs>}
 
 \item{gh_pages}{logical. If set to true, rocco docs will be served on
 your gh-pages branch.}

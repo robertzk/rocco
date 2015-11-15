@@ -1,5 +1,5 @@
 #' Writes staticdocs if they don't already exist.
-`write_staticdocs!` <- function() {
+write_staticdocs <- function() {
   package_dir <- system.file(package = "rocco")
   if (!staticdocs_index_exists()) {
     if (!staticdocs_folder_exists()) {

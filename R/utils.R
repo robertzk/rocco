@@ -22,7 +22,7 @@ description_file_attribute <- function(pkg_path, attribute) {
   as.character(read.dcf(file.path(pkg_path, "DESCRIPTION"))[1, attribute])
 }
 
-`commit_to_gh_pages!` <- function(directory, dir) {
+commit_to_gh_pages <- function(directory, dir) {
   ## A little bit of git magic
 
   ## Now that we have the docs, we need to transfer them to the gh-pages

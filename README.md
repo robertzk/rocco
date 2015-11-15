@@ -1,13 +1,20 @@
 Literate Docs for R Packages [![Build Status](https://travis-ci.org/robertzk/rocco.svg?branch=master)](https://travis-ci.org/robertzk/rocco) [![Documentation](https://img.shields.io/badge/rocco--docs-%E2%9C%93-blue.svg)](http://robertzk.github.io/rocco/)
 --------------------
 
-Literate documentation for R packages in the spirit of Coffeescript's [docco](https://github.com/jashkenas/docco)
+**Rocco** is literate documentation for R packages in the spirit of Coffeescript's [docco](https://github.com/jashkenas/docco)
 featuring syntax highlighting using [highlight.js](https://highlightjs.org/).
+
+This package allows you to build both Rocco docs and [staticdocs](https://github.com/hadley/staticdocs) for your package.
+
+-
 
 To document your package, simply run
 
 ```R
 rocco::rocco("/path/to/package") # Will open browser interactively.
+
+# This will build *just* Rocco docs, not staticdocs.
+rocco::rocco("/path/to/package", staticdocs = FALSE)
 
 # This will build the docs and push them to the repos gh-pages branch
 rocco::rocco("/path/to/package", gh_pages = TRUE)
@@ -36,5 +43,7 @@ Many thanks go to
    R syntax highlighting.
 
  * [Sindre Sorhus](https://github.com/sindresorhus) for the [Github Markdown style](https://github.com/sindresorhus/github-markdown-css).
+
+ * [Hadley Wickham](https://github.com/hadley) for [staticdocs](https://github.com/hadley/staticdocs).
 
  * [Jeremy Ashkenas](https://github.com/jashkenas) for [the original](https://github.com/jashkenas/docco) inspiration.
