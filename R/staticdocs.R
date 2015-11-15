@@ -25,22 +25,21 @@ load_staticdocs <- function(directory, output) {
     dir.create(dir, showWarnings = FALSE)
   }
   create_staticdoc_folder_tree <- function(dir, subdirs) {
-    for (subdir in subdirs) {
-      subdir <- file.path(dir, subdir)
-      unlink(subdir, recursive = TRUE, force = TRUE)
-      dir.create(subdir, showWarnings = FALSE)
-    }
+    subdirs <- lapply(subdirs, function(subdir) file.path(dir, subdir))
+    unlink(subdirs, recursive = TRUE, force = TRUE)
+    lapply(subdirs, dir.create, showWarnings = FALSE)
+  }
+  determine_dir <- function(dir, file) {
+    file_split <- strsplit(file, "/")[[1]]
+    if (length(file_split) > 1) {
+      file.path(dir, file_split[[1]])
+    } else { dir }
   }
   create_staticdoc_files <- function(files, source_dir, destination) {
-    for (file in files) {
-      to_dir <- file.path(destination, "staticdocs")
-      from_file <- file.path(source_dir, file)
-      file_split <- strsplit(file, "/")[[1]]
-      if (length(file_split) > 1) {
-        to_dir <- file.path(to_dir, file_split[[1]])
-      }
-      file.copy(from_file, to_dir, overwrite = TRUE)
-    }
+    from_files <- lapply(files, function(file) file.path(source_dir, file))
+    destination <- file.path(destination, "staticdocs")
+    to_dirs <- Map(determine_dir, rep(destination, length(files)), files)
+    Map(file.copy, from_files, to_dirs, overwrite = TRUE)
   }
 
   staticdoc_dir <- file.path(output, "staticdocs")
