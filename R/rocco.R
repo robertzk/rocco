@@ -12,7 +12,7 @@
 #'    otherwise.
 #' @param rocco logical. Whether or not to create rocco docs.  Defaults to \code{TRUE}.
 #' @param staticdocs logical. Whether or not to create staticdocs.  Staticdocs are
-#'    from Hadley's staticdocs package. \href{https://github.com/hadley/staticdocs}
+#'    from Hadley's \href{https://github.com/hadley/staticdocs}{staticdocs package}.
 #"    Defaults to \code{TRUE}.
 #' @param gh_pages logical. If set to true, rocco docs will be served on
 #'    your gh-pages branch.
