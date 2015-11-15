@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>rocco. rocco 0.2.1</title>
+<title>rocco. rocco 0.1.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -32,7 +32,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">rocco 0.2.1</a>
+      <a class="brand" href="#">rocco 0.1.1</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -52,7 +52,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rocco(directory, output_dir&nbsp;=&nbsp;tempdir(), browse&nbsp;=&nbsp;interactive(), rocco&nbsp;=&nbsp;TRUE, staticdocs&nbsp;=&nbsp;TRUE, gh_pages&nbsp;=&nbsp;FALSE)</div></pre>
+    <pre><div>rocco(directory, output_dir&nbsp;=&nbsp;tempdir(), browse&nbsp;=&nbsp;interactive(), staticdocs&nbsp;=&nbsp;TRUE, gh_pages&nbsp;=&nbsp;FALSE)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -66,11 +66,10 @@ By default, an extemporaneously-generated temporary directory.</dd>
 immediately for browsing. This will be set to <code><a href='http://www.inside-r.org/r-doc/base/interactive'>interactive</a>()</code>,
 that is, TRUE if the R session is running interactive and FALSE
 otherwise.</dd>
-      <dt>rocco</dt>
-      <dd>logical. Whether or not to create rocco docs.  Defaults to <code>TRUE</code>.</dd>
       <dt>staticdocs</dt>
-      <dd>logical. Whether or not to create staticdocs.  Staticdocs are
-from Hadley's <a href = 'https://github.com/hadley/staticdocs'>staticdocs package</a>.</dd>
+      <dd>logical. Whether or not to also create staticdocs in addition
+to rocco docs.  Staticdocs are from Hadley's staticdocs package.
+<https://github.com/hadley/staticdocs>  Defaults to <code>TRUE</code>.</dd>
       <dt>gh_pages</dt>
       <dd>logical. If set to true, rocco docs will be served on
 your gh-pages branch.</dd>
