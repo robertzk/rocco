@@ -30,9 +30,24 @@ rocco_skeleton <- function(dir) {
   )
 
   if (nzchar(rocco:::rocco_file(file.path("web", "index.html")))) {
-    staticdoc_files <- dir(rocco:::rocco_file("web"), recursive = TRUE)
+    staticdoc_files <- dir(rocco_file("web"), recursive = TRUE)
+    staticdoc_dir <- file.path(dir, "staticdocs")
+    staticdoc_dirs <- grep(".html", dir(rocco_file("web")), value = TRUE,
+      fixed = FALSE, invert = TRUE)
+    unlink(staticdoc_dir, TRUE, TRUE)
+    dir.create(staticdoc_dir, FALSE, TRUE)
+    for (subdir in staticdoc_dirs) {
+      staticdoc_subdir <- file.path(staticdoc_dir, subdir)
+      unlink(staticdoc_subdir, TRUE, TRUE)
+      dir.create(staticdoc_subdir, FALSE, TRUE)
+    }
     for (file in staticdoc_files) {
-      file.copy(file, dir, overwrite = TRUE)
+      from_file <- rocco_file(file.path("web", file))
+      file_split <- strsplit(file, "/")[[1]]
+      to_dir <- if (length(file_split > 1)) {
+        file.path(staticdoc_dir, file_split[[1]])
+      } else { staticdoc_dir }
+      file.copy(from_file, to_dir, overwrite = TRUE)
     }
   }
 }

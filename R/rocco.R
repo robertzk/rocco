@@ -33,15 +33,13 @@ rocco <- function(directory, output_dir = tempdir(), browse = interactive(), gh_
             isTRUE(browse) || isFALSE(browse),
             is_package_directory(directory))
 
-  tryCatch({
-    rocco_(directory, output_dir)
-    if (isTRUE(gh_pages)) {
-      `commit_to_gh_pages!`(directory, output_dir)
-    }
+  rocco_(directory, output_dir)
+  if (isTRUE(gh_pages)) {
+    `commit_to_gh_pages!`(directory, output_dir)
+  }
 
-    if (browse) browseURL(file.path(output_dir, "index.html"))
-    invisible(TRUE)
-  }, error = function(.) invisible(FALSE))
+  if (isTRUE(browse)) browseURL(file.path(output_dir, "index.html"))
+  invisible(TRUE)
 }
 
 rocco_ <- function(directory, output) {
