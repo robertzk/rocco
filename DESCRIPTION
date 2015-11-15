@@ -2,7 +2,7 @@ Package: rocco
 Type: Package
 Title: rocco (http://github.com/robertzk/rocco)
 Description: Literate Documentation Generator for R.
-Version: 0.2.0
+Version: 0.2.1
 Author: Robert Krzyzanowski <technoguyrob@gmail.com>
 Maintainer: Robert Krzyzanowski <technoguyrob@gmail.com>
 Authors@R: c(person("Robert", "Krzyzanowski",
@@ -13,7 +13,8 @@ License: MIT + file LICENSE
 LazyData: true
 Imports:
     whisker,
-    markdown
+    markdown,
+    devtools
 Suggests:
     testthat,
     staticdocs

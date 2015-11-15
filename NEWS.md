@@ -1,3 +1,7 @@
+# Version 0.2.1
+
+  * Rocco now will call Roxygen documentation prior to compiling staticdocs.
+
 # Version 0.2
   
   * Now Rocco also generates [staticdocs](https://github.com/hadley/staticdocs).  It creates all the necessary pre-files for staticdocs so you don't have to build them yourself.
