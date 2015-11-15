@@ -15,5 +15,7 @@ Imports:
     whisker,
     markdown
 Suggests:
-    testthat
+    testthat,
+    staticdocs
 Roxygen: list(wrap = FALSE)
+RoxygenNote: 5.0.1

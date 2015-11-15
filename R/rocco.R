@@ -10,12 +10,14 @@
 #'    immediately for browsing. This will be set to \code{\link{interactive}()},
 #'    that is, TRUE if the R session is running interactive and FALSE
 #'    otherwise.
+#' @param staticdocs logical. Whether or not to also create staticdocs in addition
+#'    to rocco docs.  Staticdocs are from Hadley's staticdocs package.
+#'    <https://github.com/hadley/staticdocs>  Defaults to \code{TRUE}.
 #' @param gh_pages logical. If set to true, rocco docs will be served on
 #'    your gh-pages branch.
 #' @export
-#' @return TRUE or FALSE according as the documentation process succeeds.
-#     Additional side effects are the creation of the documentation in the
-#'    \code{output_dir} and the launching of the browser if
+#' @return TRUE, plus additional side effects are the creation of the
+#'    documentation in the \code{output_dir} and the launching of the browser if
 #'    \code{browse = TRUE}.
 #' @examples
 #' \dontrun{
@@ -26,14 +28,17 @@
 #'   # The below will simply create a static HTML site without opening it.
 #'   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 #' }
-rocco <- function(directory, output_dir = tempdir(), browse = interactive(), gh_pages = FALSE) {
+rocco <- function(directory, output_dir = tempdir(), browse = interactive(),
+  staticdocs = TRUE, gh_pages = FALSE) {
   if (missing(directory)) directory <- "."
   stopifnot(is.character(directory), length(directory) == 1,
             is.character(output_dir), length(output_dir) == 1,
-            isTRUE(browse) || isFALSE(browse),
             is_package_directory(directory))
 
+  if (isTRUE(staticdocs) && !staticdocs_exist()) { `write_staticdocs!`() }
+
   rocco_(directory, output_dir)
+
   if (isTRUE(gh_pages)) {
     `commit_to_gh_pages!`(directory, output_dir)
   }

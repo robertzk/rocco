@@ -52,7 +52,7 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>rocco(directory, output_dir&nbsp;=&nbsp;tempdir(), browse&nbsp;=&nbsp;interactive(), gh_pages&nbsp;=&nbsp;FALSE)</div></pre>
+    <pre><div>rocco(directory, output_dir&nbsp;=&nbsp;tempdir(), browse&nbsp;=&nbsp;interactive(), staticdocs&nbsp;=&nbsp;TRUE, gh_pages&nbsp;=&nbsp;FALSE)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
@@ -66,6 +66,10 @@ By default, an extemporaneously-generated temporary directory.</dd>
 immediately for browsing. This will be set to <code><a href='http://www.inside-r.org/r-doc/base/interactive'>interactive</a>()</code>,
 that is, TRUE if the R session is running interactive and FALSE
 otherwise.</dd>
+      <dt>staticdocs</dt>
+      <dd>logical. Whether or not to also create staticdocs in addition
+to rocco docs.  Staticdocs are from Hadley's staticdocs package.
+<https://github.com/hadley/staticdocs>  Defaults to <code>TRUE</code>.</dd>
       <dt>gh_pages</dt>
       <dd>logical. If set to true, rocco docs will be served on
 your gh-pages branch.</dd>
@@ -75,8 +79,8 @@ your gh-pages branch.</dd>
       <h2>Value</h2>
 
       <p><dl>
-TRUE or FALSE according as the documentation process succeeds.
-   <code>output_dir</code> and the launching of the browser if
+TRUE, plus additional side effects are the creation of the
+   documentation in the <code>output_dir</code> and the launching of the browser if
    <code>browse = TRUE</code>.
 </dl></p>
   
