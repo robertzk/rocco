@@ -2,6 +2,7 @@
 #' @param package_dir character. The directory of the package to write staticdocs for.
 write_staticdocs <- function(package_dir) {
   check_for_staticdocs_package()
+  devtools::document(package_dir)
   if (!staticdocs_index_exists(package_dir)) {
     if (!staticdocs_folder_exists(package_dir)) {
       dir.create(file.path(package_dir, "staticdocs"), showWarnings = FALSE)
