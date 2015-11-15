@@ -1,3 +1,8 @@
+# Version 0.2.1.1
+
+  * Fixes location of the staticdoc file written by Rocco.
+  * Doesn't move the same directory multiple times.
+
 # Version 0.2.1
 
   * Rocco now will call Roxygen documentation prior to compiling staticdocs.
