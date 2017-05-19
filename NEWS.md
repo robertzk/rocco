@@ -1,3 +1,7 @@
+# Version 0.3.0
+
+  * Replace obsolete staticdocs package with [pkgdown](https://github.com/hadley/pkgdown).
+
 # Version 0.2.1.2
   * If the `inst` directory itself doesn't exist, it will be created.
   * Refactoring the file checking and creation logic.
