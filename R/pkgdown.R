@@ -6,7 +6,7 @@ write_pkgdown <- function(package_dir) {
   if (!inst_exists(package_dir)) { create_inst(package_dir) }
   if (!pkgdown_index_exists(package_dir)) { create_pkgdown_index(package_dir) }
   if (!pkgdown_folder_exists(package_dir)) { create_pkgdown_folder(package_dir) }
-  pkgdown::build_site(package_dir, launch = FALSE)
+  pkgdown::build_site(package_dir)
 }
 
 
