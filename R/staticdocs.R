@@ -6,7 +6,7 @@ write_staticdocs <- function(package_dir) {
   if (!inst_exists(package_dir)) { create_inst(package_dir) }
   if (!staticdocs_index_exists(package_dir)) { create_staticdocs_index(package_dir) }
   if (!staticdocs_folder_exists(package_dir)) { create_staticdocs_folder(package_dir) }
-  pkgdown::build_site(path = package_dir, preview = FALSE)
+  pkgdown::build_reference(path = paste0(package_dir, "/staticdocs/"))
 }
 
 
