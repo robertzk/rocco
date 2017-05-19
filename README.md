@@ -44,6 +44,6 @@ Many thanks go to
 
  * [Sindre Sorhus](https://github.com/sindresorhus) for the [Github Markdown style](https://github.com/sindresorhus/github-markdown-css).
 
- * [Hadley Wickham](https://github.com/hadley) for [staticdocs](https://github.com/hadley/staticdocs).
+ * [Hadley Wickham](https://github.com/hadley) for [pkgdown](https://github.com/hadley/pkgdown).
 
  * [Jeremy Ashkenas](https://github.com/jashkenas) for [the original](https://github.com/jashkenas/docco) inspiration.
