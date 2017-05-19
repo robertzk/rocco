@@ -1,24 +1,24 @@
-#' Writes staticdocs if they don't already exist.
-#' @param package_dir character. The directory of the package to write staticdocs for.
-write_staticdocs <- function(package_dir) {
-  check_for_staticdocs_package()
+#' Writes pkgdown if they don't already exist.
+#' @param package_dir character. The directory of the package to write pkgdown for.
+write_pkgdown <- function(package_dir) {
+  check_for_pkgdown_package()
   devtools::document(package_dir)
   if (!inst_exists(package_dir)) { create_inst(package_dir) }
-  if (!staticdocs_index_exists(package_dir)) { create_staticdocs_index(package_dir) }
-  if (!staticdocs_folder_exists(package_dir)) { create_staticdocs_folder(package_dir) }
-  staticdocs::build_site(package_dir, launch = FALSE)
+  if (!pkgdown_index_exists(package_dir)) { create_pkgdown_index(package_dir) }
+  if (!pkgdown_folder_exists(package_dir)) { create_pkgdown_folder(package_dir) }
+  pkgdown::build_site(package_dir, launch = FALSE)
 }
 
 
-#' Add staticdocs into the Rocco directory.
+#' Add pkgdown into the Rocco directory.
 #'
 #' Since Rocco and Staticdocs conflict for gh-pages and we often want both,
 #' this will resolve the tension and create one harmonious site with rocco
-#' docs located at index.html and staticdocs located at staticdocs/index.html.
+#' docs located at index.html and pkgdown located at pkgdown/index.html.
 #'
 #' @param directory character. The directory Rocco is running in.
 #' @param output character. The directory to create the skeleton in.
-load_staticdocs <- function(directory, output) {
+load_pkgdown <- function(directory, output) {
   create_staticdoc_directory <- function(dir) {
     unlink(dir, recursive = TRUE, force = TRUE)
     dir.create(dir, showWarnings = FALSE)
@@ -36,12 +36,12 @@ load_staticdocs <- function(directory, output) {
   }
   create_staticdoc_files <- function(files, source_dir, destination) {
     from_files <- lapply(files, function(file) file.path(source_dir, file))
-    destination <- file.path(destination, "staticdocs")
+    destination <- file.path(destination, "pkgdown")
     to_dirs <- Map(determine_dir, rep(destination, length(files)), files)
     Map(file.copy, from_files, to_dirs, overwrite = TRUE)
   }
 
-  staticdoc_dir <- file.path(output, "staticdocs")
+  staticdoc_dir <- file.path(output, "pkgdown")
   create_staticdoc_directory(staticdoc_dir)
   web_dir <- file.path(directory, "inst", "web")
 
@@ -55,7 +55,7 @@ load_staticdocs <- function(directory, output) {
 
 
 #' Check to see if a directory exists within the package.
-#' @param directory character. The directory of the package to check for staticdocs.
+#' @param directory character. The directory of the package to check for pkgdown.
 #' @param ... list. The folder structure to pass to \code{file.path}.
 dir_exists <- function(directory, ...) {
   file.exists(file.path(directory, ...))
@@ -75,48 +75,48 @@ inst_exists <- function(directory) { dir_exists(directory, "inst") }
 #' @inheritParams dir_exists
 create_inst <- function(directory) { dir_create(directory, "inst") }
 
-#' Check whether the staticdocs folder exists.
+#' Check whether the pkgdown folder exists.
 #' @inheritParams dir_exists
-staticdocs_folder_exists <- function(directory) {
-  dir_exists(directory, "inst", "staticdocs")
+pkgdown_folder_exists <- function(directory) {
+  dir_exists(directory, "inst", "pkgdown")
 }
 
-#' Create the staticdocs directory.
+#' Create the pkgdown directory.
 #' @inheritParams dir_exists
-create_staticdocs_folder <- function(directory) {
-  dir_create(directory, "inst", "staticdocs")
+create_pkgdown_folder <- function(directory) {
+  dir_create(directory, "inst", "pkgdown")
 }
 
 #' Check whether a staticdoc index file exists.
 #' @inheritParams dir_exists
-staticdocs_index_exists <- function(directory) {
-  staticdocs_folder_exists(directory) &&
-   dir_exists(directory, "inst", "staticdocs", "index.r")
+pkgdown_index_exists <- function(directory) {
+  pkgdown_folder_exists(directory) &&
+   dir_exists(directory, "inst", "pkgdown", "index.r")
 }
 
-#' Create the staticdocs index.
+#' Create the pkgdown index.
 #' @inheritParams dir_exists
-create_staticdocs_index <- function(directory) {
-  dir_create(directory, "inst", "staticdocs", "index.r")
+create_pkgdown_index <- function(directory) {
+  dir_create(directory, "inst", "pkgdown", "index.r")
 }
 
 #' Check whether staticdoc files have been written.
 #' @inheritParams dir_exists
-staticdocs_written <- function(directory) {
+pkgdown_written <- function(directory) {
   dir_exists(directory, "inst", "web", "index.html")
 }
 
-#' Check whether staticdocs exist.
+#' Check whether pkgdown exist.
 #' @inheritParams dir_exists
-staticdocs_exist <- function(directory) {
-  staticdocs_index_exists(directory) && staticdocs_written(directory)
+pkgdown_exist <- function(directory) {
+  pkgdown_index_exists(directory) && pkgdown_written(directory)
 }
 
 
-#' Checks that the staticdocs package is installed.
-check_for_staticdocs_package <- function() {
-  if (!(is.element("staticdocs", utils::installed.packages()[, 1]))) {
-    stop("You must install the staticdocs package to run staticdocs. ",
-      "You can get it from https://github.com/hadley/staticdocs.", call. = FALSE)
+#' Checks that the pkgdown package is installed.
+check_for_pkgdown_package <- function() {
+  if (!(is.element("pkgdown", utils::installed.packages()[, 1]))) {
+    stop("You must install the pkgdown package to run pkgdown. ",
+      "You can get it from https://github.com/hadley/pkgdown.", call. = FALSE)
   }
 }

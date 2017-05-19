@@ -11,8 +11,8 @@
 #'    that is, TRUE if the R session is running interactive and FALSE
 #'    otherwise.
 #' @param rocco logical. Whether or not to create rocco docs.  Defaults to \code{TRUE}.
-#' @param staticdocs logical. Whether or not to create staticdocs.  Staticdocs are
-#'    from Hadley's \href{https://github.com/hadley/staticdocs}{staticdocs package}.
+#' @param pkgdown logical. Whether or not to create pkgdown.  Staticdocs are
+#'    from Hadley's \href{https://github.com/hadley/pkgdown}{pkgdown package}.
 #"    Defaults to \code{TRUE}.
 #' @param gh_pages logical. If set to true, rocco docs will be served on
 #'    your gh-pages branch.
@@ -30,24 +30,24 @@
 #'   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 #' }
 rocco <- function(directory, output_dir = tempdir(), browse = interactive(),
-  rocco = TRUE, staticdocs = TRUE, gh_pages = FALSE) {
+  rocco = TRUE, pkgdown = TRUE, gh_pages = FALSE) {
   if (missing(directory)) directory <- "."
   stopifnot(is.character(directory), length(directory) == 1,
             is.character(output_dir), length(output_dir) == 1,
             is_package_directory(directory))
 
-  if (isTRUE(staticdocs)) { write_staticdocs(directory) }
+  if (isTRUE(pkgdown)) { write_pkgdown(directory) }
 
   if (isTRUE(rocco)) { write_rocco_docs(directory, output_dir) }
 
   if (isTRUE(gh_pages) && isTRUE(rocco)) {
-    #TODO: Be able to push *just* staticdocs to gh-pages.
+    #TODO: Be able to push *just* pkgdown to gh-pages.
     commit_to_gh_pages(directory, output_dir)
   }
 
   if (isTRUE(browse)) {
     if (isTRUE(rocco)) { browseURL(file.path(output_dir, "index.html")) }
-    if (isTRUE(staticdocs)) { browseURL(file.path(output_dir, "staticdocs", "index.html")) }
+    if (isTRUE(pkgdown)) { browseURL(file.path(output_dir, "pkgdown", "index.html")) }
   }
   invisible(TRUE)
 }

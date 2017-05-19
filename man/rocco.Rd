@@ -4,10 +4,11 @@
 \name{rocco}
 \alias{rocco}
 \alias{rocco-package}
+\alias{rocco}
 \title{Literate Documentation For R.}
 \usage{
 rocco(directory, output_dir = tempdir(), browse = interactive(),
-  rocco = TRUE, staticdocs = TRUE, gh_pages = FALSE)
+  rocco = TRUE, pkgdown = TRUE, gh_pages = FALSE)
 }
 \arguments{
 \item{directory}{character. The package directory to document.}
@@ -22,8 +23,8 @@ otherwise.}
 
 \item{rocco}{logical. Whether or not to create rocco docs.  Defaults to \code{TRUE}.}
 
-\item{staticdocs}{logical. Whether or not to create staticdocs.  Staticdocs are
-from Hadley's \href{https://github.com/hadley/staticdocs}{staticdocs package}.}
+\item{pkgdown}{logical. Whether or not to create pkgdown.  Staticdocs are
+from Hadley's \href{https://github.com/hadley/pkgdown}{pkgdown package}.}
 
 \item{gh_pages}{logical. If set to true, rocco docs will be served on
 your gh-pages branch.}
@@ -49,4 +50,3 @@ into a literately documented website.
   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 }
 }
-
