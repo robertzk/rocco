@@ -19,4 +19,4 @@ Suggests:
     testthat,
     staticdocs
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
