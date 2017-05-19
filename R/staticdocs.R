@@ -6,7 +6,7 @@ write_staticdocs <- function(package_dir) {
   if (!inst_exists(package_dir)) { create_inst(package_dir) }
   if (!staticdocs_index_exists(package_dir)) { create_staticdocs_index(package_dir) }
   if (!staticdocs_folder_exists(package_dir)) { create_staticdocs_folder(package_dir) }
-  staticdocs::build_site(package_dir, launch = FALSE)
+  pkgdown::build_site(path = package_dir, preview = FALSE)
 }
 
 
@@ -115,8 +115,8 @@ staticdocs_exist <- function(directory) {
 
 #' Checks that the staticdocs package is installed.
 check_for_staticdocs_package <- function() {
-  if (!(is.element("staticdocs", utils::installed.packages()[, 1]))) {
-    stop("You must install the staticdocs package to run staticdocs. ",
-      "You can get it from https://github.com/hadley/staticdocs.", call. = FALSE)
+  if (!(is.element("pkgdown", utils::installed.packages()[, 1]))) {
+    stop("You must install the pkgdown package to run pkgdown ",
+      "You can get it from https://github.com/hadley/pkgdown", call. = FALSE)
   }
 }
