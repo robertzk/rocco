@@ -11,7 +11,7 @@
 #'    that is, TRUE if the R session is running interactive and FALSE
 #'    otherwise.
 #' @param rocco logical. Whether or not to create rocco docs.  Defaults to \code{TRUE}.
-#' @param pkgdown logical. Whether or not to create pkgdown.  Staticdocs are
+#' @param pkgdown logical. Whether or not to create pkgdown.  Pkgdown are
 #'    from Hadley's \href{https://github.com/hadley/pkgdown}{pkgdown package}.
 #"    Defaults to \code{TRUE}.
 #' @param gh_pages logical. If set to true, rocco docs will be served on

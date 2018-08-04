@@ -22,7 +22,7 @@ otherwise.}
 
 \item{rocco}{logical. Whether or not to create rocco docs.  Defaults to \code{TRUE}.}
 
-\item{pkgdown}{logical. Whether or not to create pkgdown.  Staticdocs are
+\item{pkgdown}{logical. Whether or not to create pkgdown.  Pkgdown are
 from Hadley's \href{https://github.com/hadley/pkgdown}{pkgdown package}.}
 
 \item{gh_pages}{logical. If set to true, rocco docs will be served on

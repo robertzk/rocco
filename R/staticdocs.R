@@ -12,7 +12,7 @@ write_pkgdown <- function(package_dir) {
 
 #' Add pkgdown into the Rocco directory.
 #'
-#' Since Rocco and Staticdocs conflict for gh-pages and we often want both,
+#' Since Rocco and Pkgdown conflict for gh-pages and we often want both,
 #' this will resolve the tension and create one harmonious site with rocco
 #' docs located at index.html and pkgdown located at pkgdown/index.html.
 #'
