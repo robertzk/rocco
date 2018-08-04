@@ -28,5 +28,5 @@ rocco_skeleton <- function(directory, output) {
 
   suppressWarnings(Map(file.copy, sources, destinations, overwrite = TRUE))
 
-  if (staticdocs_exist(directory)) { load_staticdocs(directory, output) }
+  if (pkgdown_exist(directory)) { load_pkgdown(directory, output) }
 }

@@ -4,7 +4,7 @@ Literate Docs for R Packages [![Build Status](https://travis-ci.org/robertzk/roc
 **Rocco** is literate documentation for R packages in the spirit of Coffeescript's [docco](https://github.com/jashkenas/docco)
 featuring syntax highlighting using [highlight.js](https://highlightjs.org/).
 
-This package allows you to build both Rocco docs and [staticdocs](https://github.com/hadley/staticdocs) for your package.
+This package allows you to build both Rocco docs and [pkgdown](https://github.com/hadley/pkgdown) for your package.
 
 -
 
@@ -13,8 +13,8 @@ To document your package, simply run
 ```R
 rocco::rocco("/path/to/package") # Will open browser interactively.
 
-# This will build *just* Rocco docs, not staticdocs.
-rocco::rocco("/path/to/package", staticdocs = FALSE)
+# This will build *just* Rocco docs, not pkgdown.
+rocco::rocco("/path/to/package", pkgdown = FALSE)
 
 # This will build the docs and push them to the repos gh-pages branch
 rocco::rocco("/path/to/package", gh_pages = TRUE)

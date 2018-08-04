@@ -9,7 +9,7 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/highlight.css" rel="stylesheet">
-<link href="css/staticdocs.css" rel="stylesheet">
+<link href="css/pkgdown.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,7 +54,7 @@
 <p><strong>Rocco</strong> is literate documentation for R packages in the spirit of Coffeescript&#39;s <a href="https://github.com/jashkenas/docco">docco</a>
 featuring syntax highlighting using <a href="https://highlightjs.org/">highlight.js</a>.</p>
 
-<p>This package allows you to build both Rocco docs and <a href="https://github.com/hadley/staticdocs">staticdocs</a> for your package.</p>
+<p>This package allows you to build both Rocco docs and <a href="https://github.com/hadley/pkgdown">pkgdown</a> for your package.</p>
 
 <h2></h2>
 
@@ -62,8 +62,8 @@ featuring syntax highlighting using <a href="https://highlightjs.org/">highlight
 
 <pre><code class="R">rocco::rocco(&quot;/path/to/package&quot;) # Will open browser interactively.
 
-# This will build *just* Rocco docs, not staticdocs.
-rocco::rocco(&quot;/path/to/package&quot;, staticdocs = FALSE)
+# This will build *just* Rocco docs, not pkgdown.
+rocco::rocco(&quot;/path/to/package&quot;, pkgdown = FALSE)
 
 # This will build the docs and push them to the repos gh-pages branch
 rocco::rocco(&quot;/path/to/package&quot;, gh_pages = TRUE)
@@ -89,7 +89,7 @@ devtools::install_github(&quot;robertzk/rocco&quot;)
 <li><p>The <a href="https://highlightjs.org/">highlight.js</a> project for the Javascript-based
 R syntax highlighting.</p></li>
 <li><p><a href="https://github.com/sindresorhus">Sindre Sorhus</a> for the <a href="https://github.com/sindresorhus/github-markdown-css">Github Markdown style</a>.</p></li>
-<li><p><a href="https://github.com/hadley">Hadley Wickham</a> for <a href="https://github.com/hadley/staticdocs">staticdocs</a>.</p></li>
+<li><p><a href="https://github.com/hadley">Hadley Wickham</a> for <a href="https://github.com/hadley/pkgdown">pkgdown</a>.</p></li>
 <li><p><a href="https://github.com/jashkenas">Jeremy Ashkenas</a> for <a href="https://github.com/jashkenas/docco">the original</a> inspiration.</p></li>
 </ul>
 
@@ -102,7 +102,7 @@ R syntax highlighting.</p></li>
     <ul class="index">
         
       <li>
-        <code><a href="check_for_staticdocs_package.html">check_for_staticdocs_package</a></code><br />Checks that the staticdocs package is installed.</li>
+        <code><a href="check_for_pkgdown_package.html">check_for_pkgdown_package</a></code><br />Checks that the pkgdown package is installed.</li>
             
       <li>
         <code><a href="compile.html">compile</a></code><br />Compile a Rocco Page From a Template.</li>
@@ -111,10 +111,10 @@ R syntax highlighting.</p></li>
         <code><a href="create_inst.html">create_inst</a></code><br />Create the inst directory.</li>
             
       <li>
-        <code><a href="create_staticdocs_folder.html">create_staticdocs_folder</a></code><br />Create the staticdocs directory.</li>
+        <code><a href="create_pkgdown_folder.html">create_pkgdown_folder</a></code><br />Create the pkgdown directory.</li>
             
       <li>
-        <code><a href="create_staticdocs_index.html">create_staticdocs_index</a></code><br />Create the staticdocs index.</li>
+        <code><a href="create_pkgdown_index.html">create_pkgdown_index</a></code><br />Create the pkgdown index.</li>
             
       <li>
         <code><a href="dir_create.html">dir_create</a></code><br />Create a directory if it doesn't exist.</li>
@@ -126,7 +126,7 @@ R syntax highlighting.</p></li>
         <code><a href="inst_exists.html">inst_exists</a></code><br />Check whether the inst folder exists.</li>
             
       <li>
-        <code><a href="load_staticdocs.html">load_staticdocs</a></code><br />Add staticdocs into the Rocco directory.</li>
+        <code><a href="load_pkgdown.html">load_pkgdown</a></code><br />Add pkgdown into the Rocco directory.</li>
             
       <li>
         <code><a href="rocco.html">rocco</a></code>(rocco-package)<br />Literate Documentation For R.</li>
@@ -135,19 +135,19 @@ R syntax highlighting.</p></li>
         <code><a href="rocco_skeleton.html">rocco_skeleton</a></code><br />Create a Skeleton for Rocco Documentation.</li>
             
       <li>
-        <code><a href="staticdocs_exist.html">staticdocs_exist</a></code><br />Check whether staticdocs exist.</li>
+        <code><a href="pkgdown_exist.html">pkgdown_exist</a></code><br />Check whether pkgdown exist.</li>
             
       <li>
-        <code><a href="staticdocs_folder_exists.html">staticdocs_folder_exists</a></code><br />Check whether the staticdocs folder exists.</li>
+        <code><a href="pkgdown_folder_exists.html">pkgdown_folder_exists</a></code><br />Check whether the pkgdown folder exists.</li>
             
       <li>
-        <code><a href="staticdocs_index_exists.html">staticdocs_index_exists</a></code><br />Check whether a staticdoc index file exists.</li>
+        <code><a href="pkgdown_index_exists.html">pkgdown_index_exists</a></code><br />Check whether a staticdoc index file exists.</li>
             
       <li>
-        <code><a href="staticdocs_written.html">staticdocs_written</a></code><br />Check whether staticdoc files have been written.</li>
+        <code><a href="pkgdown_written.html">pkgdown_written</a></code><br />Check whether staticdoc files have been written.</li>
             
       <li>
-        <code><a href="write_staticdocs.html">write_staticdocs</a></code><br />Writes staticdocs if they don't already exist.</li>
+        <code><a href="write_pkgdown.html">write_pkgdown</a></code><br />Writes pkgdown if they don't already exist.</li>
     
     </ul>
   </div>
@@ -158,7 +158,7 @@ R syntax highlighting.</p></li>
     <ul>
       
       <li><strong>Imports</strong>: whisker, markdown, devtools</li>
-      <li><strong>Suggests</strong>: testthat, staticdocs</li>
+      <li><strong>Suggests</strong>: testthat, pkgdown</li>
       
     </ul>
     <h2>Authors</h2>
@@ -171,7 +171,7 @@ R syntax highlighting.</p></li>
       
       <footer>
       <p class="pull-right"><a href="#">Back to top</a></p>
-<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+<p>Built by <a href="https://github.com/hadley/pkgdown">pkgdown</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
       </footer>
     </div>
   </body>

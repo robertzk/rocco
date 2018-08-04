@@ -9,12 +9,12 @@
 
 # Version 0.2.1
 
-  * Rocco now will call Roxygen documentation prior to compiling staticdocs.
+  * Rocco now will call Roxygen documentation prior to compiling pkgdown.
 
 # Version 0.2
   
-  * Now Rocco also generates [staticdocs](https://github.com/hadley/staticdocs).  It creates all the necessary pre-files for staticdocs so you don't have to build them yourself.
-  * This repo now has staticdocs.
+  * Now Rocco also generates [pkgdown](https://github.com/hadley/pkgdown).  It creates all the necessary pre-files for pkgdown so you don't have to build them yourself.
+  * This repo now has pkgdown.
   * Removed pending files.
 
 # Version 0.1.1

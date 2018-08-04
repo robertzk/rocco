@@ -17,6 +17,6 @@ Imports:
     devtools
 Suggests:
     testthat,
-    staticdocs
+    pkgdown
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 5.0.1
