@@ -15,4 +15,3 @@ rocco_skeleton(directory, output)
 Given a target directory, this will copy over the necessary assets to
 create the initial docco template.
 }
-

@@ -34,8 +34,6 @@ TRUE, plus additional side effects are the creation of the
    \code{browse = TRUE}.
 }
 \description{
-Literate Documentation For R.
-
 Given a local package directory, turn the package's R files
 into a literately documented website.
 }
@@ -49,4 +47,3 @@ into a literately documented website.
   rocco("/path/to/package", output_dir = "/my/html/dir", browse = FALSE)
 }
 }
-

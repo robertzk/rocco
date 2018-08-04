@@ -16,4 +16,3 @@ compile(pkg_dir, template, out_file)
 \description{
 Compile a Rocco Page From a Template.
 }
-
