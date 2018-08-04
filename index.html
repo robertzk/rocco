@@ -406,11 +406,11 @@ write_pkgdown <- function(package_dir) {
 #' @param directory character. The directory Rocco is running in.
 #' @param output character. The directory to create the skeleton in.
 load_pkgdown <- function(directory, output) {
-  create_staticdoc_directory <- function(dir) {
+  create_pkgdown_directory <- function(dir) {
     unlink(dir, recursive = TRUE, force = TRUE)
     dir.create(dir, showWarnings = FALSE)
   }
-  create_staticdoc_folder_tree <- function(dir, subdirs) {
+  create_pkgdown_folder_tree <- function(dir, subdirs) {
     subdirs <- lapply(subdirs, function(subdir) file.path(dir, subdir))
     unlink(subdirs, recursive = TRUE, force = TRUE)
     lapply(subdirs, dir.create, showWarnings = FALSE)
@@ -421,23 +421,23 @@ load_pkgdown <- function(directory, output) {
       file.path(dir, dir_split[[1]])
     } else { dir }
   }
-  create_staticdoc_files <- function(files, source_dir, destination) {
+  create_pkgdown_files <- function(files, source_dir, destination) {
     from_files <- lapply(files, function(file) file.path(source_dir, file))
     destination <- file.path(destination, "pkgdown")
     to_dirs <- Map(determine_dir, rep(destination, length(files)), files)
     Map(file.copy, from_files, to_dirs, overwrite = TRUE)
   }
 
-  staticdoc_dir <- file.path(output, "pkgdown")
-  create_staticdoc_directory(staticdoc_dir)
+  pkgdown_dir <- file.path(output, "pkgdown")
+  create_pkgdown_directory(pkgdown_dir)
   web_dir <- file.path(directory, "inst", "web")
 
-  staticdoc_subdirs <- grep(".html", dir(web_dir), value = TRUE,
+  pkgdown_subdirs <- grep(".html", dir(web_dir), value = TRUE,
     fixed = FALSE, invert = TRUE)
-  create_staticdoc_folder_tree(staticdoc_dir, staticdoc_subdirs)
+  create_pkgdown_folder_tree(pkgdown_dir, pkgdown_subdirs)
 
-  staticdoc_files <- dir(web_dir, recursive = TRUE)
-  create_staticdoc_files(staticdoc_files, source_dir = web_dir, destination = output)
+  pkgdown_files <- dir(web_dir, recursive = TRUE)
+  create_pkgdown_files(pkgdown_files, source_dir = web_dir, destination = output)
 }
 
 
@@ -475,7 +475,7 @@ create_pkgdown_folder <- function(directory) {
   dir_create(directory, "inst", "pkgdown")
 }
 
-#' Check whether a staticdoc index file exists.
+#' Check whether a pkgdown index file exists.
 #' @inheritParams dir_exists
 pkgdown_index_exists <- function(directory) {
   pkgdown_folder_exists(directory) &&
@@ -488,7 +488,7 @@ create_pkgdown_index <- function(directory) {
   dir_create(directory, "inst", "pkgdown", "index.r")
 }
 
-#' Check whether staticdoc files have been written.
+#' Check whether pkgdown files have been written.
 #' @inheritParams dir_exists
 pkgdown_written <- function(directory) {
   dir_exists(directory, "inst", "web", "index.html")
